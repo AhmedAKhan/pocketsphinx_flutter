@@ -1,4 +1,4 @@
-#include "pocketsphinx_ffi_wrapper.h"
+#include "pocketsphinx_flutter.h"
 #include <pocketsphinx/err.h>
 
 FFI_PLUGIN_EXPORT ps_decoder_t* initialize_recognizer(const char* hmm_path, const char* dict_path, const char* kws_path) {

@@ -1,6 +1,6 @@
-# pocketsphinx_ffi_wrapper_example
+# pocketsphinx_flutter_example
 
-Demonstrates how to use the pocketsphinx_ffi_wrapper plugin.
+Demonstrates how to use the pocketsphinx_flutter plugin.
 
 ## Getting Started
 

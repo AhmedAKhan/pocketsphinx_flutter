@@ -1,4 +1,4 @@
-# pocketsphinx_ffi_wrapper
+# pocketsphinx_flutter
 
 A new Flutter FFI plugin project.
 
@@ -62,8 +62,8 @@ The native build systems that are invoked by FFI (and method channel) plugins ar
 * For Android: Gradle, which invokes the Android NDK for native builds.
   * See the documentation in android/build.gradle.
 * For iOS and MacOS: Xcode, via CocoaPods.
-  * See the documentation in ios/pocketsphinx_ffi_wrapper.podspec.
-  * See the documentation in macos/pocketsphinx_ffi_wrapper.podspec.
+  * See the documentation in ios/pocketsphinx_flutter.podspec.
+  * See the documentation in macos/pocketsphinx_flutter.podspec.
 * For Linux and Windows: CMake.
   * See the documentation in linux/CMakeLists.txt.
   * See the documentation in windows/CMakeLists.txt.
@@ -72,17 +72,17 @@ The native build systems that are invoked by FFI (and method channel) plugins ar
 
 To use the native code, bindings in Dart are needed.
 To avoid writing these by hand, they are generated from the header file
-(`src/pocketsphinx_ffi_wrapper.h`) by `package:ffigen`.
+(`src/pocketsphinx_flutter.h`) by `package:ffigen`.
 Regenerate the bindings by running `dart run ffigen --config ffigen.yaml`.
 
 ## Invoking native code
 
 Very short-running native functions can be directly invoked from any isolate.
-For example, see `sum` in `lib/pocketsphinx_ffi_wrapper.dart`.
+For example, see `sum` in `lib/pocketsphinx_flutter.dart`.
 
 Longer-running functions should be invoked on a helper isolate to avoid
 dropping frames in Flutter applications.
-For example, see `sumAsync` in `lib/pocketsphinx_ffi_wrapper.dart`.
+For example, see `sumAsync` in `lib/pocketsphinx_flutter.dart`.
 
 ## Flutter help
 

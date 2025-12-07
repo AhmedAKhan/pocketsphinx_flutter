@@ -1,5 +1,5 @@
-name: pocketsphinx_ffi_wrapper_example
-description: "Demonstrates how to use the pocketsphinx_ffi_wrapper plugin."
+name: pocketsphinx_flutter_example
+description: "Demonstrates how to use the pocketsphinx_flutter plugin."
 publish_to: 'none'
 
 version: 1.0.0+1
@@ -10,7 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  pocketsphinx_ffi_wrapper:
+  pocketsphinx_flutter:
     path: ../
   cupertino_icons: ^1.0.8
   path_provider: ^2.1.2

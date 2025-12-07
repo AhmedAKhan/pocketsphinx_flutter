@@ -232,7 +232,7 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.8"
-  pocketsphinx_ffi_wrapper:
+  pocketsphinx_flutter:
     dependency: "direct main"
     description:
       path: ".."

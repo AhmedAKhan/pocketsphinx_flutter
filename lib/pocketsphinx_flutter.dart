@@ -8,11 +8,11 @@ import 'dart:math' as math;
 import 'package:ffi/ffi.dart';
 import 'package:record/record.dart';
 
-import 'pocketsphinx_ffi_wrapper_bindings_generated.dart';
+import 'pocketsphinx_flutter_bindings_generated.dart';
 
-const String _libName = 'pocketsphinx_ffi_wrapper';
+const String _libName = 'pocketsphinx_flutter';
 
-/// The dynamic library in which the symbols for [PocketsphinxFfiWrapperBindings] can be found.
+/// The dynamic library in which the symbols for [PocketsphinxFlutterBindings] can be found.
 final ffi.DynamicLibrary _dylib = () {
   if (Platform.isIOS) {
     return ffi.DynamicLibrary.process();
@@ -30,7 +30,7 @@ final ffi.DynamicLibrary _dylib = () {
 }();
 
 /// The bindings to the native functions in [_dylib].
-final PocketsphinxFfiWrapperBindings _bindings = PocketsphinxFfiWrapperBindings(_dylib);
+final PocketsphinxFlutterBindings _bindings = PocketsphinxFlutterBindings(_dylib);
 
 class PocketSphinxWakeWord {
   ffi.Pointer<ps_decoder_t>? _decoder;
@@ -152,18 +152,18 @@ class PocketSphinxWakeWord {
         return ffi.DynamicLibrary.process();
       }
       if (Platform.isMacOS) {
-        return ffi.DynamicLibrary.open('pocketsphinx_ffi_wrapper.framework/pocketsphinx_ffi_wrapper');
+        return ffi.DynamicLibrary.open('pocketsphinx_flutter.framework/pocketsphinx_flutter');
       }
       if (Platform.isAndroid || Platform.isLinux) {
-        return ffi.DynamicLibrary.open('libpocketsphinx_ffi_wrapper.so');
+        return ffi.DynamicLibrary.open('libpocketsphinx_flutter.so');
       }
       if (Platform.isWindows) {
-        return ffi.DynamicLibrary.open('pocketsphinx_ffi_wrapper.dll');
+        return ffi.DynamicLibrary.open('pocketsphinx_flutter.dll');
       }
       throw UnsupportedError('Unknown platform: ${Platform.operatingSystem}');
     }();
 
-    final bindings = PocketsphinxFfiWrapperBindings(isolateDylib);
+    final bindings = PocketsphinxFlutterBindings(isolateDylib);
     final decoder = ffi.Pointer<ps_decoder_t>.fromAddress(initMessage.decoderAddress);
     final sendPort = initMessage.sendPort;
     final receivePort = ReceivePort();

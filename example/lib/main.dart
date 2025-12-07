@@ -4,7 +4,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:path_provider/path_provider.dart';
-import 'package:pocketsphinx_ffi_wrapper/pocketsphinx_ffi_wrapper.dart';
+import 'package:pocketsphinx_flutter/pocketsphinx_flutter.dart';
 
 void main() {
   runApp(const MyApp());

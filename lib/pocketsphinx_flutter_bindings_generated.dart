@@ -8,21 +8,21 @@
 // ignore_for_file: type=lint
 import 'dart:ffi' as ffi;
 
-/// Bindings for `src/pocketsphinx_ffi_wrapper.h`.
+/// Bindings for `src/pocketsphinx_flutter.h`.
 ///
 /// Regenerate bindings with `dart run ffigen`.
 ///
-class PocketsphinxFfiWrapperBindings {
+class PocketsphinxFlutterBindings {
   /// Holds the symbol lookup function.
   final ffi.Pointer<T> Function<T extends ffi.NativeType>(String symbolName)
   _lookup;
 
   /// The symbols are looked up in [dynamicLibrary].
-  PocketsphinxFfiWrapperBindings(ffi.DynamicLibrary dynamicLibrary)
+  PocketsphinxFlutterBindings(ffi.DynamicLibrary dynamicLibrary)
     : _lookup = dynamicLibrary.lookup;
 
   /// The symbols are looked up with [lookup].
-  PocketsphinxFfiWrapperBindings.fromLookup(
+  PocketsphinxFlutterBindings.fromLookup(
     ffi.Pointer<T> Function<T extends ffi.NativeType>(String symbolName) lookup,
   ) : _lookup = lookup;
 

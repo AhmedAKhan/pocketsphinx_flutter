@@ -1,10 +1,10 @@
 #
 # To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html.
-# Run `pod lib lint pocketsphinx_ffi_wrapper.podspec` to validate before publishing.
+# Run `pod lib lint pocketsphinx_flutter.podspec` to validate before publishing.
 #
 Pod::Spec.new do |s|
-  s.name             = 'pocketsphinx_ffi_wrapper'
-  s.version          = '0.1.0'
+  s.name             = 'pocketsphinx_flutter'
+  s.version          = '0.0.1'
   s.summary          = 'A new Flutter FFI plugin project.'
   s.description      = <<-DESC
 A new Flutter FFI plugin project.
@@ -18,26 +18,17 @@ A new Flutter FFI plugin project.
   # paths, so Classes contains a forwarder C file that relatively imports
   # `../src/*` so that the C sources can be shared among all target platforms.
   s.source           = { :path => '.' }
-  
-  # 1. Include ONLY the pocketsphinx static library
-  s.vendored_libraries = 'PocketSphinx/libpocketsphinx.a'
-  
-  # 2. Point to the headers so the C/C++ wrapper can compile
   s.source_files = 'Classes/**/*'
-  s.public_header_files = 'Classes/**/*.h'
-  
-  s.dependency 'Flutter'
-  s.platform = :ios, '13.0'
-  s.static_framework = true
 
-  # Flutter.framework does not contain a i386 slice.
-  s.pod_target_xcconfig = { 
-    'DEFINES_MODULE' => 'YES', 
-    'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386',
-    'HEADER_SEARCH_PATHS' => '$(PODS_TARGET_SRCROOT)/PocketSphinx'
-  }
-  s.user_target_xcconfig = {
-    'OTHER_LDFLAGS' => '-lstdc++ -all_load',
-  }
+  # If your plugin requires a privacy manifest, for example if it collects user
+  # data, update the PrivacyInfo.xcprivacy file to describe your plugin's
+  # privacy impact, and then uncomment this line. For more information,
+  # see https://developer.apple.com/documentation/bundleresources/privacy_manifest_files
+  # s.resource_bundles = {'pocketsphinx_flutter_privacy' => ['Resources/PrivacyInfo.xcprivacy']}
+
+  s.dependency 'FlutterMacOS'
+
+  s.platform = :osx, '10.11'
+  s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES' }
   s.swift_version = '5.0'
 end
