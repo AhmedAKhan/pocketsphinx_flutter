@@ -206,7 +206,7 @@ class PocketSphinxWakeWord {
         
         double rms = math.sqrt(sumSquare / numSamples);
         // Print everything for debugging "blank" file
-        print("Chunk: $numSamples samples, RMS: ${rms.toStringAsFixed(2)}.\n   Samples: $sampleDebug\n   HEX: $hexDebug");
+        // print("Chunk: $numSamples samples, RMS: ${rms.toStringAsFixed(2)}.\n   Samples: $sampleDebug\n   HEX: $hexDebug");
 
         bindings.process_audio_chunk(decoder, audioPtr, numSamples);
         

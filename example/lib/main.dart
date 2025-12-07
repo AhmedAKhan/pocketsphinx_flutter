@@ -66,7 +66,7 @@ class _MyAppState extends State<MyApp> {
         });
         
         // Log all processed text
-        print("Hypothesis: $text");
+        // print("Hypothesis: $text");
 
         if (text.toLowerCase().contains("hey shredder") || text.toLowerCase().contains("computer")) {
             print(">>> DETECTED KEYWORD: $text <<<");
@@ -106,7 +106,7 @@ class _MyAppState extends State<MyApp> {
               final data = await rootBundle.load(assetPath);
               final List<int> bytes = data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes);
               await File(localPath).writeAsBytes(bytes);
-              print("Copied asset: $assetPath -> $localPath");
+              // print("Copied asset: $assetPath -> $localPath");
           } catch (e) {
               print("Skipping missing asset: $assetPath ($e)"); 
           }
@@ -144,20 +144,20 @@ class _MyAppState extends State<MyApp> {
   }
 
   Future<void> _toggleListening() async {
-    print("Toggle listening pressed. Current state: $_isListening");
+    // print("Toggle listening pressed. Current state: $_isListening");
     try {
       if (_isListening) {
-        print("Stopping listening...");
+        // print("Stopping listening...");
         await _pocketSphinx.stopListening();
         setState(() {
           _isListening = false;
           _status = "Stopped";
         });
       } else {
-        print("Starting listening...");
+        // print("Starting listening...");
         // This will fail if initialize() wasn't called successfully
         await _pocketSphinx.startListening();
-        print("Listening started successfully.");
+        // print("Listening started successfully.");
         setState(() {
           _isListening = true;
           _status = "Listening...";
@@ -215,7 +215,7 @@ class _MyAppState extends State<MyApp> {
     final files = ['assets/blank_test.wav'];
     
     for (final file in files) {
-        print("\n--- Processing $file ---");
+        // print("\n--- Processing $file ---");
         try {
             // Ensure assets are loaded
             final data = await rootBundle.load(file);
@@ -224,12 +224,12 @@ class _MyAppState extends State<MyApp> {
             // Skip header (44 bytes is standard for WAV)
             int headerSize = 44;
             if (bytes.length <= headerSize) {
-                print("WAV file too short: $file");
+                // print("WAV file too short: $file");
                 continue;
             }
             
             final audioData = bytes.sublist(headerSize);
-            print("Sending ${audioData.length} bytes to processor...");
+            // print("Sending ${audioData.length} bytes to processor...");
             
             // Use the new method to process external audio
             await _pocketSphinx.processExternalAudio(audioData);
@@ -244,6 +244,6 @@ class _MyAppState extends State<MyApp> {
             });
         }
     }
-    print("--- Finished Processing All Files ---");
+    // print("--- Finished Processing All Files ---");
   }
 }
