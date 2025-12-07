@@ -1,0 +1,40 @@
+name: pocketsphinx_ffi_wrapper_example
+description: "Demonstrates how to use the pocketsphinx_ffi_wrapper plugin."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.0.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  pocketsphinx_ffi_wrapper:
+    path: ../
+  cupertino_icons: ^1.0.8
+  path_provider: ^2.1.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    # Dictionary and Keyphrase list
+    - assets/cmudict.dict
+    - assets/keywords.list
+    
+    # Acoustic Model Files (HMM)
+    - assets/hmm/mdef
+    - assets/hmm/means
+    - assets/hmm/variances
+    - assets/hmm/transition_matrices
+    - assets/hmm/mixture_weights
+    - assets/hmm/feat.params
+    - assets/hmm/noisedict
+    - assets/shreddy_test.wav
+    - assets/blank_test.wav
