@@ -60,9 +60,9 @@ flutter:
   # Please refer to README.md for a detailed explanation.
   plugin:
     platforms:
-      android:
-        ffiPlugin: true
+      # android:
+      #   ffiPlugin: true
       ios:
         ffiPlugin: true
-      macos:
-        ffiPlugin: true
+      # macos:
+      #   ffiPlugin: true
