@@ -19,10 +19,10 @@ A new Flutter FFI plugin project.
   # `../src/*` so that the C sources can be shared among all target platforms.
   s.source           = { :path => '.' }
   
-  # 1. Include ONLY the pocketsphinx static library
-  s.vendored_libraries = 'PocketSphinx/libpocketsphinx.a'
+  # Use XCFramework to support both Device (arm64) and Simulator (x86_64 + arm64)
+  s.vendored_frameworks = 'PocketSphinx/PocketSphinx.xcframework'
   
-  # 2. Point to the headers so the C/C++ wrapper can compile
+  # Point to the headers so the C/C++ wrapper can compile
   s.source_files = 'Classes/**/*'
   s.public_header_files = 'Classes/**/*.h'
   
@@ -34,6 +34,7 @@ A new Flutter FFI plugin project.
   s.pod_target_xcconfig = { 
     'DEFINES_MODULE' => 'YES', 
     'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386',
+    # Keep the header search path so the plugin C code can find pocketsphinx.h
     'HEADER_SEARCH_PATHS' => '$(PODS_TARGET_SRCROOT)/PocketSphinx'
   }
   s.user_target_xcconfig = {

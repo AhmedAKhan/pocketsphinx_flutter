@@ -15,6 +15,8 @@ const String _libName = 'pocketsphinx_flutter';
 /// The dynamic library in which the symbols for [PocketsphinxFlutterBindings] can be found.
 final ffi.DynamicLibrary _dylib = () {
   if (Platform.isIOS) {
+    // Note: On iOS Simulator, the bindings are stubbed to avoid linking errors with the arm64-only static library.
+    // Speech recognition will silently fail (return null/empty) on Simulator.
     return ffi.DynamicLibrary.process();
   }
   if (Platform.isMacOS) {

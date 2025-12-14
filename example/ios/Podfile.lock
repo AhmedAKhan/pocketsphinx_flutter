@@ -27,7 +27,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Flutter: cabc95a1d2626b1b06e7179b784ebcf0c0cde467
   path_provider_foundation: bb55f6dbba17d0dccd6737fe6f7f34fbd0376880
-  pocketsphinx_flutter: 80022a4128cb6d4caa61035a94644a533f4a3e83
+  pocketsphinx_flutter: df8c2a33ac0bff63059b1d13571b8d0964110fcb
   record_ios: f75fa1d57f840012775c0e93a38a7f3ceea1a374
 
 PODFILE CHECKSUM: 251cb053df7158f337c0712f2ab29f4e0fa474ce
